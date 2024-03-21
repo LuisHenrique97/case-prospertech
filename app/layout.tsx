@@ -26,7 +26,7 @@ export default function RootLayout({
 						<div className="xs:hidden md:flex">
 							<Drawer />
 						</div>
-						<div className="bg-gray h-screen">
+						<div className="bg-gray h-screen w-screen">
 							<Header />
 							{children}
 						</div>
