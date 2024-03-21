@@ -11,11 +11,11 @@ export interface ICard {
 	title: string;
 	description: string;
 	price: number;
-	tipo: PizzaType;
+	tipo?: PizzaType;
 }
 
 export interface ICart extends ICard {
-	size: SizeType;
-	quant: number;
-	totalValue: number;
+	size?: SizeType;
+	quant?: number;
+	totalValue?: number;
 }

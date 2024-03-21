@@ -1,11 +1,17 @@
+"use client";
+
 import Counter from "@/components/atoms/counter/counter";
 import SelectSize from "@/components/atoms/select-size/select-size";
+import { ViewPizzas, addPizza } from "@/lib/Redux/CartSlice/cart-slice";
 import Banner from "@/lib/assets/images/pizza.jpg";
 import { listPizzas } from "@/lib/data/data";
 import { ShoppingCartIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function CardPizza() {
+	const dispatch = useDispatch();
+
 	return (
 		<>
 			{listPizzas.map((pizza) => {
@@ -39,7 +45,10 @@ export default function CardPizza() {
 								R$ {pizza.price.toFixed(2)}
 							</p>
 
-							<button className="bg-primary px-3 h-8 w-32 flex items-center justify-between rounded-md active:bg-secondary">
+							<button
+								onClick={() => dispatch(addPizza(pizza))}
+								className="bg-primary px-3 h-8 w-32 flex items-center justify-between rounded-md active:bg-secondary"
+							>
 								<ShoppingCartIcon width={24} height={24} />
 								<p>Adicionar</p>
 							</button>

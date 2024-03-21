@@ -1,6 +1,10 @@
 "use client";
 
-import { decrement, increment, selectCount } from "@/lib/Redux/counter-slice";
+import {
+	decrement,
+	increment,
+	selectCount,
+} from "@/lib/Redux/CounterSlice/counter-slice";
 import { PlusIcon, MinusIcon } from "@heroicons/react/24/outline";
 import { useDispatch, useSelector } from "react-redux";
 
