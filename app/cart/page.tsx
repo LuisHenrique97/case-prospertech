@@ -1,7 +1,11 @@
+import CardPizzaCart from "@/components/molecules/card-pizza-cart/card-pizza-card";
+
 export default function Purchase() {
 	return (
 		<main className="card">
-			<p>cart</p>
+			<div className="space-y-6">
+				<CardPizzaCart />
+			</div>
 		</main>
 	);
 }

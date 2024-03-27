@@ -14,6 +14,7 @@ export const cartSlice = createSlice({
 				title: action.payload.title,
 				description: action.payload.description,
 				price: action.payload.price,
+				quant: action.payload.quant,
 			});
 		},
 	},

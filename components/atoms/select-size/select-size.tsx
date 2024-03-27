@@ -2,7 +2,7 @@
 
 import clsx from "clsx";
 import { dataSizePizza } from "@/lib/data/data";
-import { Filter, SizeType } from "@/lib/models/models";
+import { Filter } from "@/lib/models/models";
 import { useState } from "react";
 
 export default function SelectSize() {
