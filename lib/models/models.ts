@@ -19,3 +19,10 @@ export interface ICart extends ICard {
 	quant?: number;
 	totalValue?: number;
 }
+
+export interface IOrder {
+	id: number;
+	valueTotal: number;
+	quantTotal: number;
+	itemsOrder: [ICard];
+}

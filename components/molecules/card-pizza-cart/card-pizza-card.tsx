@@ -1,23 +1,20 @@
 "use client";
 
 import Counter from "@/components/atoms/counter/counter";
-
-import { ViewPizzas } from "@/lib/Redux/CartSlice/cart-slice";
-import { useState } from "react";
-import { useSelector } from "react-redux";
+import {
+	ViewPizzas,
+	decrease,
+	increase,
+} from "@/lib/Redux/CartSlice/cart-slice";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function CardPizzaCart() {
 	const pizzas = useSelector(ViewPizzas);
 
-	console.log(pizzas);
 	return (
 		<>
 			{pizzas.map((item) => {
-				const [count, setCount] = useState(item?.quant);
-
-				const decrase = () => {
-					count === 0 ? setCount(0) : setCount(count! - 1);
-				};
+				const dispatch = useDispatch();
 
 				return (
 					<div className="w-[344px] h-[148px] bg-gray p-4 flex flex-col justify-center rounded-md">
@@ -30,11 +27,13 @@ export default function CardPizzaCart() {
 									</p>
 								</div>
 								<div className="flex justify-between items-center">
-									<p className="text-tertiary font-bold">R$ 35,00</p>
+									<p className="text-tertiary font-bold">
+										R$ {item?.price.toFixed(2)}
+									</p>
 									<Counter
-										dec={() => decrase()}
-										inc={() => setCount(count! + 1)}
-										value={count!}
+										dec={() => dispatch(decrease(item))}
+										inc={() => dispatch(increase(item))}
+										value={item?.quant!}
 									/>
 								</div>
 							</div>
