@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Drawer from "@/components/molecules/drawer/drawer";
 import Header from "@/components/molecules/header/header";
 
 import StoreProvider from "@/lib/Redux/StoreProvider";
@@ -23,9 +22,6 @@ export default function RootLayout({
 			<StoreProvider>
 				<body className={inter.className}>
 					<div className="flex h-screen flex-col md:flex-row bg-primary overflow-hidden">
-						<div className="xs:hidden md:flex">
-							<Drawer />
-						</div>
 						<div className="bg-gray h-screen w-screen">
 							<Header />
 							{children}

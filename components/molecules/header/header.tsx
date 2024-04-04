@@ -1,12 +1,16 @@
 "use client";
 
 import FilterPizzas from "@/components/atoms/filter-pizzas/filter-pizzas";
+import { Bars3Icon } from "@heroicons/react/24/outline";
 import { ShoppingCartIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 
 import Drawer from "../drawer/drawer";
+import { useDispatch } from "react-redux";
+import { openDrawer } from "@/lib/Redux/Navigation/navigation-slice";
 
 export default function Header() {
+	const dispatch = useDispatch();
 	//A navegação do drawer navigation será feita atravéz
 	//de uma manipulação de estado global do componente
 
@@ -14,21 +18,19 @@ export default function Header() {
 	// E a implementação de layout deve ser feito no componente
 
 	return (
-		<div className="bg-secondary md:ml-8 h-32 sm:h-36">
-			<div className="flex flex-row md:items-baseline justify-between mr-6">
-				<div>
-					<div className="md:hidden fixed">
-						<Drawer />
-					</div>
-					<div className="md:visible md:mt-4 mt-12 ml-6">
-						<p className="text-biggest font-bold text-tertiary">Cardápio</p>
-						<p className="text-regular font-medium text-tertiary">
-							Aqui você pode ver todas as nossas pizzas
-						</p>
-					</div>
-				</div>
+		<div className="bg-offwhite h-max ">
+			<div className="flex flex-row justify-between items-center py-4 px-6">
+				<Bars3Icon
+					width={24}
+					height={24}
+					onClick={() => dispatch(openDrawer())}
+					className="text-tertiary  active:text-primary"
+				/>
 
-				<Link href={"/cart"} className=" items-center mt-4 ">
+				<div className="">
+					<p className="text-big font-bold text-tertiary">Cardápio</p>
+				</div>
+				<Link href={"/cart"} className=" items-center ">
 					<ShoppingCartIcon
 						width={24}
 						height={24}
@@ -37,19 +39,7 @@ export default function Header() {
 				</Link>
 			</div>
 
-			{/* <input
-				type="text"
-				className="h-11 mt-6 w-3/5 pl-4 bg-gray 
-        rounded-md focus:outline-none focus:ring-2
-        focus:ring-secondary text-tertiary"
-				placeholder="Insira o nome da pizza"
-			/>
-			<button className="h-12 ml-6 rounded-md active:bg-secondary text-white bg-primary w-32">
-				<p>Buscar</p>
-			</button>
-			<div className="mt-4">
-				<FilterPizzas />
-			</div> */}
+			<Drawer />
 		</div>
 	);
 }

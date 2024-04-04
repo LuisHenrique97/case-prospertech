@@ -1,40 +1,37 @@
 "use client";
 
 import NavLinks from "@/components/atoms/nav-links/nav-links";
-import NavLogo from "@/components/atoms/nav-logo/nav-logo";
+import {
+	closeDrawer,
+	selectStateDrawer,
+} from "@/lib/Redux/Navigation/navigation-slice";
 import clsx from "clsx";
-import { useState } from "react";
-import { Bars3Icon } from "@heroicons/react/24/outline";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function Drawer() {
-	const [isOpen, setIsOpen] = useState<boolean>(false);
+	const dispatch = useDispatch();
+	const stateDrawer = useSelector(selectStateDrawer);
 
 	return (
-		<div
-			className={clsx("w-64 h-screen flex-none pt-4 md:w-64 bg-offwhite", {
-				"w-max bg-secondary h-max": isOpen,
-			})}
-		>
-			<div className="md:hidden ml-6 flex w-max">
-				<button onClick={() => setIsOpen(!isOpen)} className="flex">
-					<Bars3Icon
-						width={24}
-						height={24}
-						className="text-tertiary  active:text-primary"
-					/>
-					<p
-						className={clsx("px-4 font-medium text-tertiary", {
-							hidden: isOpen,
-						})}
-					>
-						Menu
-					</p>
-				</button>
+		<div>
+			<div
+				className={clsx(
+					"w-64 fixed top-0 left-auto  bg-secondary h-screen z-40 ",
+					{
+						"transition-transform -translate-x-full": stateDrawer,
+					},
+				)}
+			>
+				<div className={clsx("xs:h-[92vh]")}>
+					<NavLinks />
+				</div>
 			</div>
-			<div className={clsx("xs:h-[92vh]", { hidden: isOpen })}>
-				{/* <NavLogo /> */}
-				<NavLinks />
-			</div>
+			<div
+				onClick={() => dispatch(closeDrawer())}
+				className={clsx("w-screen h-screen fixed top-0 left-0 z-30", {
+					"transition-transform -translate-x-full": stateDrawer,
+				})}
+			/>
 		</div>
 	);
 }
