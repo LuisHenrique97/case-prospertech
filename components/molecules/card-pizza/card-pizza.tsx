@@ -1,14 +1,11 @@
 "use client";
 
-import Counter from "@/components/atoms/counter/counter";
-import SelectSize from "@/components/atoms/select-size/select-size";
-import { ViewPizzas, addPizza } from "@/lib/Redux/CartSlice/cart-slice";
+import { addPizza } from "@/lib/Redux/CartSlice/cart-slice";
 import Banner from "@/lib/assets/images/pizza.jpg";
-import { dataSizePizza, listPizzas } from "@/lib/data/data";
+import { listPizzas } from "@/lib/data/data";
 import { ShoppingCartIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
-import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 export default function CardPizza() {
 	const dispatch = useDispatch();
@@ -16,50 +13,49 @@ export default function CardPizza() {
 	return (
 		<>
 			{listPizzas.map((pizza) => {
-				const [count, setCount] = useState(0);
-
-				const decrase = () => {
-					count === 0 ? setCount(0) : setCount(count - 1);
-				};
-
 				return (
 					<div
-						className="bg-white shadow-md  h-[510px] w-[344px] rounded-md m-2"
+						className="bg-offwhite flex flex-col justify-between shadow-md h-[148px] w-[344px] rounded-md m-1 p-2"
 						key={pizza.id}
 					>
-						<div className="h-48 w-full bg-offwhite rounded-t-md object-cover">
-							<Image
-								src={Banner}
-								alt="Banner"
-								className="rounded-t-md"
-								style={{ objectFit: "cover", height: "194px" }} //Lebrar de documentar isso
-							/>
-						</div>
-						<div className="m-4">
-							<p className="text-big text-tertiary font-bold">{pizza.title}</p>
-							<p className="text-regular text-tertiary font-regular ">
-								{pizza.description}
-							</p>
+						<div className="flex justify-between ">
+							<div className="h-24 w-24 bg-tertiary rounded-md object-cover">
+								<Image
+									src={Banner}
+									alt="Banner"
+									className="rounded-md"
+									style={{ objectFit: "cover", height: "96px" }} //Lebrar de documentar isso
+								/>
+							</div>
+							<div className="w-4/6 h-20">
+								<p className="text-big text-tertiary font-bold">
+									{pizza.title}
+								</p>
+								<p
+									className="text-small overflow-hidden text-ellipsis line-clamp-2 
+								text-tertiary font-sans "
+								>
+									{pizza.description}
+								</p>
+								<button
+									onClick={() => {}}
+									className="flex self-start font-medium "
+								>
+									<p>Ver mais</p>
+								</button>
+							</div>
 						</div>
 
-						<div className="flex justify-center">
-							<Counter
-								value={count}
-								dec={() => decrase()}
-								inc={() => setCount(count + 1)}
-							/>
-						</div>
-						<div className="flex justify-between mx-4">
+						<div className="flex justify-between align-bottom items-end mx-1 ">
 							<p className="text-big font-medium text-tertiary">
 								R$ {pizza.price.toFixed(2)}
 							</p>
 
 							<button
-								onClick={() => dispatch(addPizza({ ...pizza, quant: count }))}
-								className="bg-primary px-3 h-8 w-32 flex items-center justify-between rounded-md active:bg-secondary"
+								onClick={() => dispatch(addPizza({ ...pizza }))}
+								className="bg-primary px-3 h-8 w-fit flex items-center justify-between rounded-md active:bg-secondary"
 							>
 								<ShoppingCartIcon width={24} height={24} />
-								<p>Adicionar</p>
 							</button>
 						</div>
 					</div>

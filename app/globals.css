@@ -4,7 +4,7 @@
 
 @layer components {
 	.card {
-		@apply gap-2 bg-white md:ml-8 pl-6;
-		@apply h-4/5 overflow-auto flex items-center justify-center flex-wrap  mt-8;
+		@apply gap-2 bg-white;
+		@apply h-screen overflow-y-auto flex items-center justify-center flex-wrap p-1 mt-4;
 	}
 }

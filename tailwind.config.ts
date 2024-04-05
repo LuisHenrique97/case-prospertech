@@ -35,9 +35,9 @@ const config: Config = {
 		},
 		fontSize: {
 			biggest: "30px",
-			big: "24px",
-			regular: "16px",
-			small: "14px",
+			big: "21px",
+			regular: "17px",
+			small: "15px",
 		},
 	},
 	plugins: [],
