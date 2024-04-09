@@ -13,13 +13,13 @@ export default function Counter(counter: ICount) {
 	return (
 		<div className="flex flex-row  w-28  justify-end ">
 			<button onClick={counter.dec}>
-				<MinusIcon className="w-6 h-6" />
+				<MinusIcon className="w-6 h-6 text-tertiary" />
 			</button>
-			<p className="flex items-center justify-center text-regular font-medium border w-8 h-8 rounded-md ">
+			<p className="flex items-center text-tertiary justify-center text-regular font-medium border w-8 h-8 rounded-md ">
 				{counter.value}
 			</p>
 			<button onClick={counter.inc}>
-				<PlusIcon className="w-6 h-6" />
+				<PlusIcon className="w-6 h-6 text-tertiary" />
 			</button>
 		</div>
 	);
