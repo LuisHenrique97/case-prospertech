@@ -49,7 +49,7 @@ export default function NavLinks() {
 			</div>
 			<div>
 				<Link
-					href={"/"}
+					href={"/auth/register"}
 					className=" flex grow my-2 ml-4 mb-4 items-center 
 						rounded-md text-tertiary font-medium text-regular
 						hover:bg-secondary hover:mr-4 h-[48px] p-3"

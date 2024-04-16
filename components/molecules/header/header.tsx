@@ -17,8 +17,10 @@ export default function Header() {
 	// A função de abrir e fechar o drawer será implentada dentro do componente
 	// E a implementação de layout deve ser feito no componente
 
+	//O Header receberar a propriedade hidden quando a pagina de login for acionada
+
 	return (
-		<div className="bg-offwhite h-max ">
+		<div className="bg-offwhite h-max drop-shadow-md hidden">
 			<div className="flex flex-row justify-between items-center py-4 px-6">
 				<Bars3Icon
 					width={24}

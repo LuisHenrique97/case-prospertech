@@ -21,7 +21,7 @@ export default function RootLayout({
 		<html lang="en">
 			<StoreProvider>
 				<body className={work_sans.className}>
-					<div className="flex h-screen flex-col md:flex-row bg-primary overflow-hidden">
+					<div className="flex h-screen flex-col md:flex-row overflow-hidden">
 						<div className="bg-gray h-screen w-screen flex flex-col justify-between">
 							<Header />
 							{children}
