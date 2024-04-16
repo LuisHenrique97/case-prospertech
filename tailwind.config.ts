@@ -27,6 +27,7 @@ const config: Config = {
 			offwhite: "#FFF3E0",
 			gray: "#ECEFF1",
 			yellow: "#FDD835",
+			red: "#f22",
 		},
 		fontWeight: {
 			regular: "400",
