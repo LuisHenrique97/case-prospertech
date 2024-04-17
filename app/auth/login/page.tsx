@@ -4,6 +4,10 @@ import { ArrowLeftIcon } from "@heroicons/react/24/outline";
 import { useForm, SubmitHandler } from "react-hook-form";
 import Banner from "@/lib/assets/images/signIn.png";
 import Image from "next/image";
+import { useDispatch, useSelector } from "react-redux";
+import { useRouter } from "next/navigation";
+import { UserRegister } from "@/lib/Redux/UserSlice/user-slice";
+import { login } from "@/lib/Redux/AuthSlice/auth-slice";
 
 type Inputs = {
 	email: string;
@@ -11,12 +15,30 @@ type Inputs = {
 };
 
 export default function Login() {
+	const dispatch = useDispatch();
+	const router = useRouter();
+
+	const createAccount = useSelector(UserRegister);
+	console.log(createAccount);
+
 	const {
 		register,
 		handleSubmit,
 		formState: { errors },
 	} = useForm<Inputs>();
-	const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
+	const onSubmit: SubmitHandler<Inputs> = (data) => {
+		createAccount.filter((item) => {
+			const email = item?.email === data.email;
+			const password = item?.password === data.password;
+			if (email && password) {
+				console.log("Iguais");
+				dispatch(login({ ...data, id: item.id, name: item.name }));
+				router.push("/account");
+			} else {
+				console.log("Diferentes");
+			}
+		});
+	};
 
 	return (
 		<main className="card">

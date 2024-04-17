@@ -20,7 +20,7 @@ export default function Header() {
 	//O Header receberar a propriedade hidden quando a pagina de login for acionada
 
 	return (
-		<div className="bg-offwhite h-max drop-shadow-md hidden">
+		<div className="bg-offwhite h-max drop-shadow-md ">
 			<div className="flex flex-row justify-between items-center py-4 px-6">
 				<Bars3Icon
 					width={24}

@@ -4,6 +4,10 @@ import { ArrowLeftIcon } from "@heroicons/react/24/outline";
 import { useForm, SubmitHandler } from "react-hook-form";
 import Banner from "@/lib/assets/images/signUp.png";
 import Image from "next/image";
+import { useDispatch } from "react-redux";
+import { registerUser } from "@/lib/Redux/UserSlice/user-slice";
+import { login } from "@/lib/Redux/AuthSlice/auth-slice";
+import { useRouter } from "next/navigation";
 
 type Inputs = {
 	name: string;
@@ -13,22 +17,34 @@ type Inputs = {
 };
 
 export default function Register() {
+	const dispatch = useDispatch();
+	const router = useRouter();
+
 	const {
 		register,
 		setError,
 		handleSubmit,
 		formState: { errors },
 	} = useForm<Inputs>();
+
 	const onSubmit: SubmitHandler<Inputs> = (data) => {
 		if (data.password === data.confirmPassword) {
 			console.log("Senha Iguais");
+			dispatch(
+				registerUser({
+					...data,
+					id: Math.floor(Math.random() * (1000 - 1) + 1),
+				}),
+			);
+			dispatch(
+				login({ ...data, id: Math.floor(Math.random() * (1000 - 1) + 1) }),
+			);
+			router.push("/account");
 		} else {
 			return setError("confirmPassword", {
 				message: "As senhas não conferem",
 			});
 		}
-
-		console.log(data);
 	};
 
 	return (

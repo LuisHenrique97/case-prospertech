@@ -1,5 +1,12 @@
 import { PizzaType, SizeType } from "./enum";
 
+export interface User {
+	id: number;
+	name: string;
+	email: string;
+	password: string;
+}
+
 export interface Filter {
 	id: number;
 	tipo: SizeType | PizzaType;
