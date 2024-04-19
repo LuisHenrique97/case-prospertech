@@ -16,7 +16,7 @@ export default function Drawer() {
 		<div>
 			<div
 				className={clsx(
-					"w-64 fixed top-0 left-auto  bg-secondary h-screen z-40 ",
+					"w-64 fixed top-0 left-auto bg-secondary h-screen z-50 ",
 					{
 						"transition-transform -translate-x-full": stateDrawer,
 					},

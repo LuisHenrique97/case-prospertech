@@ -9,8 +9,6 @@ export default function Account() {
 	const router = useRouter();
 	const dispatch = useDispatch();
 
-	console.log(auth);
-
 	return (
 		<main className="card">
 			<div>Minha Conta</div>

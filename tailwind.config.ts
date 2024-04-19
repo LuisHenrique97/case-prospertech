@@ -39,6 +39,7 @@ const config: Config = {
 			big: "21px",
 			regular: "17px",
 			small: "15px",
+			smaller: "13px",
 		},
 	},
 	plugins: [],

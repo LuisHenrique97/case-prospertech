@@ -19,7 +19,10 @@ export default function CardPizzaCart() {
 				const dispatch = useDispatch();
 
 				return (
-					<div className="w-[344px] h-[148px] shadow-md bg-offwhite p-4 flex flex-col justify-center rounded-md">
+					<div
+						key={item?.id}
+						className="w-[344px] h-[148px] shadow-md bg-offwhite p-4 flex flex-col justify-center rounded-md"
+					>
 						<div className="flex justify-between gap-4">
 							<div className="w-[100px] h-[100px] bg-tertiary rounded-md">
 								<Image

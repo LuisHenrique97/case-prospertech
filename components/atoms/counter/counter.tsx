@@ -11,7 +11,7 @@ interface ICount {
 
 export default function Counter(counter: ICount) {
 	return (
-		<div className="flex flex-row  w-28  justify-end ">
+		<div className="flex w-max  ">
 			<button onClick={counter.dec}>
 				<MinusIcon className="w-6 h-6 text-tertiary" />
 			</button>

@@ -19,12 +19,13 @@ export interface ICard {
 	description: string;
 	price: number;
 	tipo?: PizzaType;
-	quant?: number;
+	quant: number;
+	active: boolean;
 }
 
 export interface ICart extends ICard {
 	size?: SizeType;
-	quant?: number;
+	quant: number;
 	totalValue?: number;
 }
 
