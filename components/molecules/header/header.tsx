@@ -11,15 +11,21 @@ import {
 	openDrawer,
 	pageCurrent,
 } from "@/lib/Redux/Navigation/navigation-slice";
+import clsx from "clsx";
+import { usePathname } from "next/navigation";
 
 export default function Header() {
 	const dispatch = useDispatch();
 	const currentPage = useSelector(namePage);
 
-	//O Header receberar a propriedade hidden quando a pagina de login for acionada
+	const pathname = usePathname();
 
 	return (
-		<div className="bg-offwhite h-max drop-shadow-md ">
+		<div
+			className={clsx("bg-offwhite h-max drop-shadow-md", {
+				hidden: pathname === "/auth/login" || pathname === "/auth/register",
+			})}
+		>
 			<div className="flex flex-row justify-between items-center py-4 px-6">
 				<Bars3Icon
 					width={24}

@@ -19,19 +19,19 @@ export default function Login() {
 	const router = useRouter();
 
 	const createAccount = useSelector(UserRegister);
-	console.log(createAccount);
 
 	const {
 		register,
+
 		handleSubmit,
 		formState: { errors },
 	} = useForm<Inputs>();
+
 	const onSubmit: SubmitHandler<Inputs> = (data) => {
 		createAccount.filter((item) => {
 			const email = item?.email === data.email;
 			const password = item?.password === data.password;
 			if (email && password) {
-				console.log("Iguais");
 				dispatch(login({ ...data, id: item.id, name: item.name }));
 				router.push("/account");
 			} else {
@@ -43,13 +43,18 @@ export default function Login() {
 	return (
 		<main className="card">
 			<div className="bg-white w-screen h-full  flex flex-col items-center justify-between">
-				<div className="flex self-start p-4">
-					<ArrowLeftIcon
-						width={24}
-						height={24}
-						className="cursor-pointer mr-3 text-tertiary"
-					/>
-					<button>
+				<div className="flex self-start">
+					<button
+						className="flex self-start p-4 w-max"
+						onClick={() => {
+							router.back(), console.log("1");
+						}}
+					>
+						<ArrowLeftIcon
+							width={24}
+							height={24}
+							className="mr-2 text-tertiary"
+						/>
 						<p className="text-tertiary font-medium ">Voltar</p>
 					</button>
 				</div>
@@ -104,17 +109,16 @@ export default function Login() {
 					<div className="flex  justify-center">
 						<button
 							onClick={handleSubmit(onSubmit)}
-							className="bg-primary drop-shadow-md min-w-16 h-9 p-4 w-72 mt-16 
-						flex rounded-md justify-center items-center
-						hover:bg-secondary 
-						"
+							className="bg-primary drop-shadow-md min-w-16 
+							h-9 p-4 w-72 mt-16 flex rounded-md justify-center 
+							items-center hover:bg-secondary"
 						>
 							<p className="text-white font-medium ">Avançar</p>
 						</button>
 					</div>
 					<div className="flex gap-2 mt-4">
 						<p className="text-small">Se ainda não possui uma conta </p>
-						<button>
+						<button onClick={() => router.push("/auth/register")}>
 							<p className="text-small text-primary">clique aqui</p>
 						</button>
 					</div>

@@ -50,13 +50,16 @@ export default function Register() {
 	return (
 		<main className="card">
 			<div className="bg-white w-screen h-full  flex flex-col items-center justify-between">
-				<div className="flex self-start p-4">
-					<ArrowLeftIcon
-						width={24}
-						height={24}
-						className="cursor-pointer mr-3 text-tertiary"
-					/>
-					<button>
+				<div className="flex self-start">
+					<button
+						className="flex self-start p-4 w-max"
+						onClick={() => router.back()}
+					>
+						<ArrowLeftIcon
+							width={24}
+							height={24}
+							className="mr-2 text-tertiary"
+						/>
 						<p className="text-tertiary font-medium ">Voltar</p>
 					</button>
 				</div>

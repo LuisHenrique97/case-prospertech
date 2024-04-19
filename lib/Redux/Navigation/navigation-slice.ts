@@ -3,7 +3,7 @@ import { RootState } from "../store";
 
 const initialState = {
 	value: false,
-	currentPage: "",
+	currentPage: "Cardápio",
 };
 
 export const navigationSlice = createSlice({
