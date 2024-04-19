@@ -3,6 +3,7 @@ import { RootState } from "../store";
 
 const initialState = {
 	value: false,
+	currentPage: "",
 };
 
 export const navigationSlice = createSlice({
@@ -15,9 +16,13 @@ export const navigationSlice = createSlice({
 		closeDrawer: (state) => {
 			state.value = true;
 		},
+		pageCurrent: (state, action) => {
+			state.currentPage = action.payload;
+		},
 	},
 });
 
-export const { openDrawer, closeDrawer } = navigationSlice.actions;
+export const { openDrawer, closeDrawer, pageCurrent } = navigationSlice.actions;
 export default navigationSlice.reducer;
 export const selectStateDrawer = (state: RootState) => state.navigation.value;
+export const namePage = (state: RootState) => state.navigation.currentPage;

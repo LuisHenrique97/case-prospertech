@@ -36,10 +36,14 @@ export default function Purchase() {
 
 	return (
 		<main className="flex flex-col h-full bg-gray justify-between items-center overflow-hidden p-3">
-			<div className="flex p-4 items-start justify-center flex-wrap overflow-y-auto gap-3 h-[65%]">
+			<div
+				className="flex flex-col p-3 justify-start items-center
+			w-[90%] md:flex-row md:flex-wrap md:justify-center md:w-fit md:place-content-start
+			 rounded-md overflow-y-auto gap-2 h-[65%]"
+			>
 				<CardPizzaCart />
 			</div>
-			<div className="bg-gray  drop-shadow-md rounded-md flex flex-col justify-around h-40 w-full">
+			<div className="bg-gray drop-shadow-md rounded-md flex flex-col justify-around h-40 w-full">
 				<div className="px-2">
 					<div className="flex justify-between items-center px-2 py-2 ">
 						<p className="text-regular font-medium text-tertiary">

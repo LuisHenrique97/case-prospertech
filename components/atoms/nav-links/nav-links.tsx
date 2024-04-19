@@ -9,23 +9,29 @@ import {
 	ArrowLeftStartOnRectangleIcon,
 } from "@heroicons/react/24/outline";
 import { useDispatch } from "react-redux";
-import { closeDrawer } from "@/lib/Redux/Navigation/navigation-slice";
+import {
+	closeDrawer,
+	pageCurrent,
+} from "@/lib/Redux/Navigation/navigation-slice";
 
 const links = [
-	{ name: "Home", href: "/", icon: HomeIcon },
+	{ name: "Cardápio", href: "/", icon: HomeIcon },
 	{
 		name: "Carrinho",
 		href: "/cart",
 		icon: ShoppingCartIcon,
 	},
 	{ name: "Meus Pedidos", href: "/purchases", icon: ShoppingBagIcon },
-	{ name: "Meus Conta", href: "/account", icon: UserIcon },
+	{ name: "Minha Conta", href: "/account", icon: UserIcon },
 ];
-
-//O use-cliente permite o uso icone como jsx
 
 export default function NavLinks() {
 	const dispatch = useDispatch();
+
+	const navigationToPage = (pageName: string) => {
+		dispatch(pageCurrent(pageName));
+		dispatch(closeDrawer());
+	};
 
 	return (
 		<div className="h-full justify-between flex flex-col ">
@@ -34,7 +40,7 @@ export default function NavLinks() {
 					const LinkIcon = link.icon;
 					return (
 						<Link
-							onClick={() => dispatch(closeDrawer())}
+							onClick={() => navigationToPage(link.name)}
 							href={link.href}
 							key={link.name}
 							className=" flex grow my-2 ml-3 items-center 

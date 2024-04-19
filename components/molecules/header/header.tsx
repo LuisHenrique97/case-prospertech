@@ -1,21 +1,20 @@
 "use client";
 
-import FilterPizzas from "@/components/atoms/filter-pizzas/filter-pizzas";
 import { Bars3Icon } from "@heroicons/react/24/outline";
 import { ShoppingCartIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 
 import Drawer from "../drawer/drawer";
-import { useDispatch } from "react-redux";
-import { openDrawer } from "@/lib/Redux/Navigation/navigation-slice";
+import { useDispatch, useSelector } from "react-redux";
+import {
+	namePage,
+	openDrawer,
+	pageCurrent,
+} from "@/lib/Redux/Navigation/navigation-slice";
 
 export default function Header() {
 	const dispatch = useDispatch();
-	//A navegação do drawer navigation será feita atravéz
-	//de uma manipulação de estado global do componente
-
-	// A função de abrir e fechar o drawer será implentada dentro do componente
-	// E a implementação de layout deve ser feito no componente
+	const currentPage = useSelector(namePage);
 
 	//O Header receberar a propriedade hidden quando a pagina de login for acionada
 
@@ -30,9 +29,13 @@ export default function Header() {
 				/>
 
 				<div className="">
-					<p className="text-big font-bold text-tertiary">Cardápio</p>
+					<p className="text-big font-bold text-tertiary">{currentPage}</p>
 				</div>
-				<Link href={"/cart"} className=" items-center ">
+				<Link
+					href={"/cart"}
+					className=" items-center"
+					onClick={() => dispatch(pageCurrent("Carrinho"))}
+				>
 					<ShoppingCartIcon
 						width={24}
 						height={24}
