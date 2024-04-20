@@ -6,7 +6,7 @@ import { finalizeOrder } from "@/lib/Redux/OrderSlice/order-slice";
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/navigation";
 
-export default function Purchase() {
+export default function Cart() {
 	const pizzas = useSelector(ViewPizzas);
 	const router = useRouter();
 	const dispatch = useDispatch();
@@ -35,10 +35,10 @@ export default function Purchase() {
 	};
 
 	return (
-		<main className="flex flex-col h-full bg-gray justify-between items-center overflow-hidden p-3">
+		<main className="flex flex-col h-full bg-gray justify-between items-center overflow-hidden p-2">
 			<div
-				className="flex flex-col p-3 justify-start items-center
-			w-[90%] md:flex-row md:flex-wrap md:justify-center md:w-fit md:place-content-start
+				className="flex flex-col  justify-start items-center
+			w-[100%] md:flex-row md:flex-wrap md:justify-center md:w-fit md:place-content-start
 			 rounded-md overflow-y-auto gap-2 h-[65%]"
 			>
 				<CardPizzaCart />

@@ -1,14 +1,18 @@
 "use client";
 
 import ModalDetails from "@/components/atoms/modal-details/modal";
-import { addPizza } from "@/lib/Redux/CartSlice/cart-slice";
+import {
+	ViewPizzas,
+	addPizza,
+	increase,
+} from "@/lib/Redux/CartSlice/cart-slice";
 import Banner from "@/lib/assets/images/pizza.jpg";
 import { listPizzas } from "@/lib/data/data";
-import { ICard } from "@/lib/models/models";
+import { ICard, ICart } from "@/lib/models/models";
 import { ShoppingCartIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function CardPizza() {
 	const dispatch = useDispatch();
@@ -16,7 +20,9 @@ export default function CardPizza() {
 	const [list, setList] = useState(listPizzas);
 	const [selected, setSelected] = useState<ICard>();
 
-	const changeOption = (item: ICard) => {
+	const pizzas = useSelector(ViewPizzas);
+
+	const opemModalDetails = (item: ICard) => {
 		setOpen(true);
 
 		const updateState = list.map((itemSelect: ICard) =>
@@ -32,6 +38,16 @@ export default function CardPizza() {
 		setList(updateState);
 
 		return itemActive;
+	};
+
+	const addCart = (newItem: ICart) => {
+		const hasItem = pizzas.find((item) => item?.id === newItem.id);
+
+		if (hasItem) {
+			dispatch(increase(hasItem));
+		} else {
+			dispatch(addPizza(newItem));
+		}
 	};
 
 	return (
@@ -62,7 +78,7 @@ export default function CardPizza() {
 									{pizza.description}
 								</p>
 								<button
-									onClick={() => changeOption(pizza)}
+									onClick={() => opemModalDetails(pizza)}
 									className="flex self-start font-medium "
 								>
 									<p>Ver mais</p>
@@ -76,7 +92,7 @@ export default function CardPizza() {
 							</p>
 
 							<button
-								onClick={() => dispatch(addPizza({ ...pizza }))}
+								onClick={() => addCart(pizza)}
 								className="bg-primary px-3 h-8 w-fit flex items-center justify-between rounded-md active:bg-secondary"
 							>
 								<ShoppingCartIcon width={24} height={24} />
