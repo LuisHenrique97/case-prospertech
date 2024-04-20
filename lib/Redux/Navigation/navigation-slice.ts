@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../store";
 
 const initialState = {
-	value: false,
+	value: true,
 	currentPage: "Cardápio",
 };
 

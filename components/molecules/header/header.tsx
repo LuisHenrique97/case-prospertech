@@ -13,12 +13,19 @@ import {
 } from "@/lib/Redux/Navigation/navigation-slice";
 import clsx from "clsx";
 import { usePathname } from "next/navigation";
+import { Badge } from "@mui/joy";
+import { ViewPizzas } from "@/lib/Redux/CartSlice/cart-slice";
 
 export default function Header() {
 	const dispatch = useDispatch();
 	const currentPage = useSelector(namePage);
+	const pizzas = useSelector(ViewPizzas);
 
 	const pathname = usePathname();
+
+	const QuantItemsCart = pizzas
+		.map((a) => a?.quant)
+		.reduce((acumulador, atual) => acumulador! + atual!, 0);
 
 	return (
 		<div
@@ -42,11 +49,13 @@ export default function Header() {
 					className=" items-center"
 					onClick={() => dispatch(pageCurrent("Carrinho"))}
 				>
-					<ShoppingCartIcon
-						width={24}
-						height={24}
-						className="text-tertiary active:text-primary"
-					/>
+					<Badge badgeContent={QuantItemsCart} showZero={false} color="danger">
+						<ShoppingCartIcon
+							width={24}
+							height={24}
+							className="text-tertiary active:text-primary"
+						/>
+					</Badge>
 				</Link>
 			</div>
 
