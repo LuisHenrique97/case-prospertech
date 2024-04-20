@@ -50,18 +50,25 @@ export default function CardPizza() {
 		}
 	};
 
+	const imageLoader = ({ src, width, quality }: any) => {
+		return `https://cdn.pixabay.com/${src}?w=${width}&q=${quality || 75}`;
+	};
+
 	return (
 		<>
 			{list.map((pizza) => {
 				return (
 					<div
-						className="bg-offwhite flex flex-col justify-between shadow-md h-[148px] w-[344px] rounded-md m-1 p-2"
+						className="bg-white flex flex-col justify-between shadow-md h-[148px] w-[344px] rounded-md m-1 p-2"
 						key={pizza.id}
 					>
 						<div className="flex justify-between ">
 							<div className="h-24 w-24 bg-tertiary rounded-md object-cover">
 								<Image
-									src={Banner}
+									loader={imageLoader}
+									src={pizza.url!}
+									width={200}
+									height={100}
 									alt="Banner"
 									className="rounded-md"
 									style={{ objectFit: "cover", height: "96px" }} //Lebrar de documentar isso
@@ -95,7 +102,7 @@ export default function CardPizza() {
 								onClick={() => addCart(pizza)}
 								className="bg-primary px-3 h-8 w-fit flex items-center justify-between rounded-md active:bg-secondary"
 							>
-								<ShoppingCartIcon width={24} height={24} />
+								<ShoppingCartIcon width={24} height={24} color="#fff" />
 							</button>
 						</div>
 						<ModalDetails
@@ -107,6 +114,7 @@ export default function CardPizza() {
 							price={selected?.price}
 							active={selected?.active}
 							quant={selected?.quant}
+							url={selected?.url!}
 						/>
 					</div>
 				);

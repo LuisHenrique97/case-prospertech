@@ -9,21 +9,28 @@ import { useSelector } from "react-redux";
 export default function CardPizzaPurchases() {
 	const orders = useSelector(ViewOrders);
 
+	const imageLoader = ({ src, width, quality }: any) => {
+		return `https://cdn.pixabay.com/${src}?w=${width}&q=${quality || 75}`;
+	};
+
 	return (
 		<div className="grid gap-4 grid-cols-1">
 			{orders.map((pizza) => (
-				<div className="bg-gray p-1 rounded-md">
+				<div className="bg-gray drop-shadow-md p-1 rounded-md h-max ">
 					{pizza?.itemsOrder.map((items) => {
 						return (
 							<div>
 								<div
-									className="bg-offwhite flex flex-col justify-between shadow-md h-[148px] w-[344px] rounded-md m-1 p-2"
+									className="bg-white flex flex-col justify-between shadow-sm h-[148px] w-[344px] rounded-md m-1 p-2"
 									key={items?.id}
 								>
 									<div className="flex justify-between ">
 										<div className="h-24 w-24 bg-tertiary rounded-md object-cover">
 											<Image
-												src={Banner}
+												loader={imageLoader}
+												src={items.url!}
+												width={200}
+												height={100}
 												alt="Banner"
 												className="rounded-md"
 												style={{ objectFit: "cover", height: "96px" }} //Lebrar de documentar isso

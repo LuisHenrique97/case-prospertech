@@ -102,13 +102,13 @@ export default function Cart() {
 				</div>
 				<div className="flex flex-col gap-4 ">
 					<button
-						className="w-4/6 self-center text-small hover:text-secondary text-primary font-medium"
+						className="w-4/6 self-center text-small hover:text-red text-primary font-medium"
 						onClick={() => dispatch(clearCart(pizzas))}
 					>
 						Limpar Carrinho
 					</button>
 					<button
-						className="bg-primary hover:bg-secondary hover:text-tertiary h-9 text-regular text-offwhite font-medium rounded-md w-5/6 self-center"
+						className="bg-primary hover:bg-red hover:text-white h-9 text-regular text-offwhite font-medium rounded-md w-5/6 self-center"
 						onClick={() => setOpenModal(true)}
 					>
 						Finalizar Pedido

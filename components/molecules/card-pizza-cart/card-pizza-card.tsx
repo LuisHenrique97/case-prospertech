@@ -13,6 +13,10 @@ import { useDispatch, useSelector } from "react-redux";
 export default function CardPizzaCart() {
 	const pizzas = useSelector(ViewPizzas);
 
+	const imageLoader = ({ src, width, quality }: any) => {
+		return `https://cdn.pixabay.com/${src}?w=${width}&q=${quality || 75}`;
+	};
+
 	return (
 		<>
 			{pizzas.map((item) => {
@@ -21,12 +25,15 @@ export default function CardPizzaCart() {
 				return (
 					<div
 						key={item?.id}
-						className="w-[344px] h-[148px] shadow-md bg-offwhite p-4 flex flex-col justify-center rounded-md"
+						className="w-[344px] h-[148px] shadow-md bg-white p-4 flex flex-col justify-center rounded-md"
 					>
 						<div className="flex justify-between gap-4">
 							<div className="w-[100px] h-[100px] bg-tertiary rounded-md">
 								<Image
-									src={Banner}
+									loader={imageLoader}
+									src={item?.url!}
+									width={200}
+									height={100}
 									alt="Banner"
 									className="rounded-md"
 									style={{ objectFit: "cover", height: "96px" }} //Lebrar de documentar isso

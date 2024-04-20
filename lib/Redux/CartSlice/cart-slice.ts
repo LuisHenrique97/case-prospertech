@@ -16,6 +16,7 @@ export const cartSlice = createSlice({
 				price: action.payload.price,
 				quant: 1,
 				active: false,
+				url: action.payload.url,
 			});
 		},
 		increase(state, action) {

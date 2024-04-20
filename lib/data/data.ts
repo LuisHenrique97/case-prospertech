@@ -20,6 +20,9 @@ export const listPizzas: Array<ICard> = [
 		description: "Molho de tomates frescos, mussarela, parmesão e alho frito.",
 		tipo: PizzaType.Salgadas,
 		price: 20.0,
+		active: false,
+		quant: 0,
+		url: "photo/2016/11/29/13/02/cheese-1869708_640.jpg",
 	},
 	{
 		id: 2,
@@ -28,6 +31,9 @@ export const listPizzas: Array<ICard> = [
 			"Molho de tomates frescos, atum, cebola, azeitonas pretas e salpicada de orégano.",
 		tipo: PizzaType.Salgadas,
 		price: 32.9,
+		active: false,
+		quant: 0,
+		url: "photo/2017/09/30/15/10/plate-2802332_640.jpg",
 	},
 	{
 		id: 3,
@@ -36,6 +42,9 @@ export const listPizzas: Array<ICard> = [
 			"Molho de tomates frescos, mussarela, bacon e salpicada de orégano.",
 		tipo: PizzaType.Salgadas,
 		price: 35.9,
+		active: false,
+		quant: 0,
+		url: "photo/2017/02/15/10/57/pizza-2068272_640.jpg",
 	},
 	{
 		id: 4,
@@ -44,6 +53,9 @@ export const listPizzas: Array<ICard> = [
 			"Molho de tomates frescos, brócolis ao alho e óleo, rodelas de tomates frescos, coberta com mussarela especial e salpicada de orégano",
 		tipo: PizzaType.Salgadas,
 		price: 40.9,
+		active: false,
+		quant: 0,
+		url: "photo/2014/05/18/11/25/pizza-346985_640.jpg",
 	},
 	{
 		id: 5,
@@ -52,6 +64,9 @@ export const listPizzas: Array<ICard> = [
 			"Molho de tomates frescos, cebola, calabresa curada, azeitonas pretas e salpicada de orégano.",
 		tipo: PizzaType.Salgadas,
 		price: 22.9,
+		active: false,
+		quant: 0,
+		url: "photo/2018/12/12/13/03/pizza-3870778_640.jpg",
 	},
 	{
 		id: 6,
@@ -60,6 +75,9 @@ export const listPizzas: Array<ICard> = [
 			"Molho de tomates frescos, coberta com catupiry e salpicada de orégano.",
 		tipo: PizzaType.Salgadas,
 		price: 23.5,
+		active: false,
+		quant: 0,
+		url: "photo/2016/04/09/09/22/pizza-1317699_640.jpg",
 	},
 	{
 		id: 7,
@@ -68,5 +86,8 @@ export const listPizzas: Array<ICard> = [
 			"Molho de tomates frescos, champignons, coberta com mussarela e salpicada de orégano.",
 		tipo: PizzaType.Salgadas,
 		price: 25.9,
+		active: false,
+		quant: 0,
+		url: "photo/2014/07/08/12/34/pizza-386717_640.jpg",
 	},
 ];

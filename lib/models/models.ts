@@ -21,6 +21,7 @@ export interface ICard {
 	tipo?: PizzaType;
 	quant: number;
 	active: boolean;
+	url?: string;
 }
 
 export interface ICart extends ICard {

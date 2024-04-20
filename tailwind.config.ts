@@ -20,9 +20,11 @@ const config: Config = {
 			xl: "1440px",
 		},
 		colors: {
-			primary: "#F57C00",
+			primary: "#c1121f",
 			secondary: "#FABD80",
 			tertiary: "#442C2E",
+			black: "#000",
+			brown: "#A35709",
 			white: "#ffffff",
 			offwhite: "#FFF3E0",
 			gray: "#ECEFF1",

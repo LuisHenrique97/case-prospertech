@@ -15,12 +15,9 @@ export default function Drawer() {
 	return (
 		<div>
 			<div
-				className={clsx(
-					"w-64 fixed top-0 left-auto bg-secondary h-screen z-50 ",
-					{
-						"transition-transform -translate-x-full": stateDrawer,
-					},
-				)}
+				className={clsx("w-64 fixed top-0 left-auto bg-white h-screen z-50 ", {
+					"transition-transform -translate-x-full": stateDrawer,
+				})}
 			>
 				<div className={clsx("xs:h-[92vh]")}>
 					<NavLinks />

@@ -4,8 +4,13 @@ import Image from "next/image";
 import React from "react";
 import Banner from "@/lib/assets/images/pizza.jpg";
 import clsx from "clsx";
-import { useDispatch } from "react-redux";
-import { addPizza } from "@/lib/Redux/CartSlice/cart-slice";
+import { useDispatch, useSelector } from "react-redux";
+import {
+	ViewPizzas,
+	addPizza,
+	increase,
+} from "@/lib/Redux/CartSlice/cart-slice";
+import { ICart } from "@/lib/models/models";
 
 interface IModal {
 	id: number;
@@ -16,10 +21,26 @@ interface IModal {
 	price?: number;
 	active?: boolean;
 	quant?: number;
+	url: string;
 }
 
 export default function ModalDetails(props: IModal) {
 	const dispatch = useDispatch();
+	const pizzas = useSelector(ViewPizzas);
+
+	const imageLoader = ({ src, width, quality }: any) => {
+		return `https://cdn.pixabay.com/${src}?w=${width}&q=${quality || 75}`;
+	};
+
+	const addCart = (newItem: ICart) => {
+		const hasItem = pizzas.find((item) => item?.id === newItem.id);
+
+		if (hasItem) {
+			dispatch(increase(hasItem));
+		} else {
+			dispatch(addPizza(newItem));
+		}
+	};
 
 	return (
 		<>
@@ -35,12 +56,21 @@ export default function ModalDetails(props: IModal) {
 						height: "450px",
 					}}
 				>
-					<ModalClose variant="solid" color="neutral" sx={{ m: 3 }} />
+					<ModalClose
+						color="neutral"
+						className="bg-primary text-white"
+						variant="solid"
+						sx={{ m: 3 }}
+					/>
+
 					<div className="flex flex-col justify-between h-[100%]">
 						<div>
 							<div className="w-[100%] h-[150px] bg-tertiary rounded-md ">
 								<Image
-									src={Banner}
+									loader={imageLoader}
+									src={props.url}
+									width={100}
+									height={30}
 									alt="Banner"
 									className="rounded-md"
 									style={{
@@ -73,14 +103,15 @@ export default function ModalDetails(props: IModal) {
 
 							<button
 								onClick={() =>
-									dispatch(
-										addPizza({
-											title: props.title,
-											description: props.description,
-											price: props.price,
-											quant: props.quant,
-										}),
-									)
+									addCart({
+										id: props.id,
+										title: props.title!,
+										description: props.description!,
+										price: props.price!,
+										quant: props.quant!,
+										active: props.active!,
+										url: props.url,
+									})
 								}
 								className={clsx(
 									"bg-primary px-3 gap-2  h-8 w-fit flex items-center justify-between hover:bg-secondary active:bg-primary rounded-md",

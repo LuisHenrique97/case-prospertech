@@ -44,8 +44,8 @@ export default function NavLinks() {
 							href={link.href}
 							key={link.name}
 							className=" flex grow my-2 ml-3 items-center 
-						rounded-md text-tertiary font-medium text-regular
-						hover:bg-secondary hover:mr-4 h-[48px] p-3"
+						rounded-md text-black font-medium text-regular
+						hover:bg-primary hover:text-white hover:mr-4 h-[48px] p-3"
 						>
 							<LinkIcon width={24} height={24} />
 							<p className="px-4">{link.name}</p>
@@ -57,8 +57,8 @@ export default function NavLinks() {
 				<Link
 					href={"/auth/register"}
 					className=" flex grow my-2 ml-4 mb-4 items-center 
-						rounded-md text-tertiary font-medium text-regular
-						hover:bg-secondary hover:mr-4 h-[48px] p-3"
+						rounded-md text-black font-medium text-regular
+						hover:bg-primary hover:text-white hover:mr-4 h-[48px] p-3"
 				>
 					<ArrowLeftStartOnRectangleIcon width={24} height={24} />
 					<p className="px-4">Sair</p>

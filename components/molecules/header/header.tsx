@@ -29,7 +29,7 @@ export default function Header() {
 
 	return (
 		<div
-			className={clsx("bg-offwhite h-max drop-shadow-md", {
+			className={clsx("bg-black h-max drop-shadow-md z-10", {
 				hidden: pathname === "/auth/login" || pathname === "/auth/register",
 			})}
 		>
@@ -38,11 +38,11 @@ export default function Header() {
 					width={24}
 					height={24}
 					onClick={() => dispatch(openDrawer())}
-					className="text-tertiary  active:text-primary"
+					className="text-white  active:text-primary"
 				/>
 
 				<div className="">
-					<p className="text-big font-bold text-tertiary">{currentPage}</p>
+					<p className="text-big font-bold text-white">{currentPage}</p>
 				</div>
 				<Link
 					href={"/cart"}
@@ -53,7 +53,7 @@ export default function Header() {
 						<ShoppingCartIcon
 							width={24}
 							height={24}
-							className="text-tertiary active:text-primary"
+							className="text-white active:text-primary"
 						/>
 					</Badge>
 				</Link>
