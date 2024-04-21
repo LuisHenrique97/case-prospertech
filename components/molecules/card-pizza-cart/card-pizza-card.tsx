@@ -36,7 +36,7 @@ export default function CardPizzaCart() {
 									height={100}
 									alt="Banner"
 									className="rounded-md"
-									style={{ objectFit: "cover", height: "96px" }} //Lebrar de documentar isso
+									style={{ objectFit: "cover", height: "100%" }} //Lebrar de documentar isso
 								/>
 							</div>
 							<div className="h-full w-4/6 flex flex-col  justify-between ">
