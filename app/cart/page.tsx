@@ -54,7 +54,11 @@ export default function Cart() {
 				onClose={() => setOpenModal(false)}
 				className="opacity-95"
 			>
-				<ModalDialog variant="solid" className="opacity-100 bg-white">
+				<ModalDialog
+					variant="solid"
+					sx={{ backgroundColor: "#fff" }}
+					className="opacity-100"
+				>
 					<ModalClose sx={{ m: 1.5, color: "#000" }} />
 					<Typography
 						component="h2"
@@ -75,14 +79,23 @@ export default function Cart() {
 						<Button
 							onClick={() => setOpenModal(false)}
 							variant="outlined"
-							className="text-primary w-[45%] border-primary flex text-start hover:bg-offwhite active:border-offwhite"
+							color="danger"
+							sx={{
+								color: "#c1121f",
+								borderWidth: 1,
+								borderColor: "#c1121f",
+							}}
+							className=" w-[45%] flex text-start"
 						>
 							Voltar
 						</Button>
 						<Button
 							onClick={() => finishOrder()}
 							variant="solid"
-							className="bg-primary w-[45%] hover:bg-primary active:bg-secondary"
+							style={{
+								backgroundColor: "#c1121f",
+							}}
+							className=" w-[45%]"
 						>
 							Finalizar
 						</Button>
