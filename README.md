@@ -90,4 +90,4 @@ Indica que elementos que estão fisicamente próximos uns dos outros são perceb
 
 ## Observações
 
-Este projeto ainda tem grande capacidade de ser melhorado em diversos quesitos como: **_remoção da estilização em linha_**, arquivos separados para **_funções utilitárias_**, **_componentização de blocos de código do MATERIAL UI_** , e possivelmente algo mais. Mesmo o código estão completamento funcional, ainda pode ser feita uma refatoração, para deixar o código mais organizado e legivel. Essas implementações não foram feitas por questões de tempo do desenvolvedor.
+Este projeto ainda tem grande capacidade de ser melhorado em diversos quesitos como: **_remoção da estilização em linha_**, arquivos separados para **_funções utilitárias_**, **_componentização de blocos de código do MATERIAL UI_** , e possivelmente algo mais. Mesmo o código estando completamente funcional, ainda pode ser feita uma refatoração, para deixar o código mais organizado e legivel. Essas implementações não foram feitas por questões de tempo do desenvolvedor.
