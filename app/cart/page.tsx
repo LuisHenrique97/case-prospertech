@@ -1,6 +1,6 @@
 "use client";
 
-import CardPizzaCart from "@/components/molecules/card-pizza-cart/card-pizza-card";
+import CardPizzaCart from "@/components/molecules/card-pizza-cart/card-pizza-cart";
 import { ViewPizzas, clearCart } from "@/lib/Redux/CartSlice/cart-slice";
 import { finalizeOrder } from "@/lib/Redux/OrderSlice/order-slice";
 import { useDispatch, useSelector } from "react-redux";

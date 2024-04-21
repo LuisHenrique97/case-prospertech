@@ -1,7 +1,6 @@
 "use client";
 
 import Counter from "@/components/atoms/counter/counter";
-import Banner from "@/lib/assets/images/pizza.jpg";
 import {
 	ViewPizzas,
 	decrease,
